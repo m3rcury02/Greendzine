@@ -8,21 +8,21 @@ import com.example.greendzine.Route
 
 
 @Composable
-fun MainScreen() {
+fun LoginNavigation() {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = Route.LOGIN) {
         composable(route = Route.LOGIN) {
             Login(
                 navigateToHome = {
-                    navController.navigate(Route.HOMESCREEN) {
+                    navController.navigate(Route.HOMEBAR) {
                         popUpTo(Route.LOGIN) { inclusive = true }
                     }
                 }
             )
         }
-        composable(route = Route.HOMESCREEN) {
-            HomeScreen()
+        composable(route = Route.HOMEBAR) {
+            HomeNavBar()
         }
     }
 }

@@ -5,9 +5,8 @@ import androidx.compose.runtime.Composable
 import com.example.greendzine.VerticalGradient
 
 @Composable
-fun HomeScreen() {
+fun ProfileScreen() {
     VerticalGradient() {
-        Text(text = "Home Screen")
+        Text(text = "Profile Screen")
     }
-
 }

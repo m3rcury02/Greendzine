@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.greendzine.ui.screens.MainScreen
+import com.example.greendzine.ui.screens.LoginNavigation
 import com.example.greendzine.ui.theme.GreendzineTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,8 +28,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    VerticalGradient()
-                    MainScreen()
+                    VerticalGradient(){
+                        LoginNavigation()
+                    }
+
                 }
             }
         }
@@ -37,24 +39,32 @@ class MainActivity : ComponentActivity() {
     }
 }
 object Route{
-    const val HOMEPAGE = "HomePage"
+    const val HOMEPAGE = "HomeScreen"
     const val LOGIN = "Login"
-    const val HOMESCREEN="HomeScreen"
+    const val HOMEBAR="HomeNavBar"
     const val PROFILE="ProfileScreen"
 }
 
 
 
 @Composable
-fun VerticalGradient() {
+fun VerticalGradient(content: @Composable () -> Unit) {
     val gradient = Brush.verticalGradient(
         listOf(Color.Black, Color(0xff000e09)),
         startY = 0.0f,
         endY = Float.POSITIVE_INFINITY
     )
-    Box(modifier = Modifier.background(gradient))
-
+    Box(modifier = Modifier.background(gradient)) {
+        content()
+    }
 }
+@Composable
+fun EndGradient(content: @Composable () -> Unit) {
+    Box(modifier = Modifier.background(Color(0xff000e09))) {
+        content()
+    }
+}
+
 
 @Preview(showBackground = true)
 @Composable
