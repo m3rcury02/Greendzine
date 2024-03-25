@@ -58,6 +58,7 @@ fun VerticalGradient(content: @Composable () -> Unit) {
         content()
     }
 }
+
 @Composable
 fun EndGradient(content: @Composable () -> Unit) {
     Box(modifier = Modifier.background(Color(0xff000e09))) {

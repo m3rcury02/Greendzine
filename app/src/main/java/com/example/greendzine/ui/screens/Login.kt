@@ -2,7 +2,6 @@ package com.example.greendzine.ui.screens
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -25,7 +24,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -67,10 +65,6 @@ fun TitleLogo() {
 
 @Composable
 fun TextBox(modifier: Modifier, navigateToHome: () -> Unit) {
-    val gradient = Brush.verticalGradient(
-        colors = listOf(Color.Black, Color(0xff000e09)),
-        startY = 0.0f
-    )
     val context = LocalContext.current
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -107,7 +101,7 @@ fun TextBox(modifier: Modifier, navigateToHome: () -> Unit) {
     )
     Spacer(modifier = Modifier.height(16.dp))
     ElevatedButton(
-        modifier = modifier.background(brush=gradient),
+        modifier = modifier,
         onClick = {
             if (email == "gunal2002@gmail.com" && password == "1234") {
                 navigateToHome()
@@ -119,7 +113,8 @@ fun TextBox(modifier: Modifier, navigateToHome: () -> Unit) {
         },
         colors = ButtonDefaults.buttonColors(containerColor = GreenPrimary)
     ) {
-        Text(text = "Login")
+            Text(text = "Login")
+
     }
     TextButton(onClick = { /*TODO*/ }) {
         Text(text = "Forgot Password?")
