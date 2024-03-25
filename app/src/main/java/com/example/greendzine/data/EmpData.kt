@@ -5,12 +5,12 @@ class EmpData() {
         return listOf<Employees>(
             Employees(1, "Gunal", "15-01-2002", "Android Developer"),
             Employees(2, "Seenivasagan", "25-12-1969", "Software Engineer"),
-            Employees(3, "Arjun", "16-11-2000", "Web Developer"),
-            Employees(4, "Robert", "16-11-2000", "Software Architect"),
-            Employees(5, "Todd", "16-11-2000", "Cloud Engineer"),
-            Employees(6, "Mick", "16-11-2000", "ML Developer"),
-            Employees(7, "Kendrick", "16-11-2000", "CyberSecurity Expert"),
-            Employees(8, "Bill", "16-11-2000", "DevOps Engineer")
+            Employees(3, "Arjun", "23-04-1974", "Web Developer"),
+            Employees(4, "Robert", "04-07-1990", "Software Architect"),
+            Employees(5, "Todd", "23-03-1989", "Cloud Engineer"),
+            Employees(6, "Mick", "12-05-1999", "ML Developer"),
+            Employees(7, "Kendrick", "15-03-1987", "CyberSecurity Expert"),
+            Employees(8, "Bill", "06-10-2001", "DevOps Engineer")
         )
     }
 

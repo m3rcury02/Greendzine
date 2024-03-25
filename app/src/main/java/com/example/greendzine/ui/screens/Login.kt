@@ -14,6 +14,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
@@ -69,6 +70,7 @@ fun TitleLogo() {
 
 @Composable
 fun TextBox(modifier: Modifier, navigateToHome: () -> Unit) {
+    val snackbarHostState = remember { SnackbarHostState() }
     val gradient = Brush.verticalGradient(
         colors = listOf(Color.Black, Color(0xff000e09)),
         startY = 0.0f
@@ -111,7 +113,7 @@ fun TextBox(modifier: Modifier, navigateToHome: () -> Unit) {
     ElevatedButton(
         modifier = modifier.background(brush=gradient),
         onClick = {
-            if (email == "" && password == "") {
+            if (email == "gunal2002@gmail.com" && password == "1234") {
                 navigateToHome()
             } else {
                 scope.launch {
