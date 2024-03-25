@@ -2,6 +2,7 @@ package com.example.greendzine.ui.screens
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -25,6 +26,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -65,9 +67,12 @@ fun TitleLogo() {
     Spacer(modifier = Modifier.height(16.dp))
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TextBox(modifier: Modifier, navigateToHome: () -> Unit) {
+    val gradient = Brush.verticalGradient(
+        colors = listOf(Color.Black, Color(0xff000e09)),
+        startY = 0.0f
+    )
     val context = LocalContext.current
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -79,10 +84,12 @@ fun TextBox(modifier: Modifier, navigateToHome: () -> Unit) {
         onValueChange = { email = it.trim() },
         label = { Text(text = "E-mail") },
         shape = RoundedCornerShape(percent = 50),
-        colors = TextFieldDefaults.textFieldColors(
+        colors = TextFieldDefaults.colors(
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
-            unfocusedLabelColor = GreyField
+            unfocusedContainerColor = Color(0xff111211),
+            focusedContainerColor = Color(0xff111211),
+
         )
     )
     TextField(
@@ -92,15 +99,17 @@ fun TextBox(modifier: Modifier, navigateToHome: () -> Unit) {
         onValueChange = { password = it.trim() },
         label = { Text(text = "Password") },
         shape = RoundedCornerShape(percent = 50),
-        colors = TextFieldDefaults.textFieldColors(
+        colors = TextFieldDefaults.colors(
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
-            unfocusedLabelColor = GreyField
+            unfocusedContainerColor = Color(0xff111211),
+            focusedContainerColor = Color(0xff111211),
+
         )
     )
     Spacer(modifier = Modifier.height(16.dp))
     ElevatedButton(
-        modifier = modifier,
+        modifier = modifier.background(brush=gradient),
         onClick = {
             if (email == "" && password == "") {
                 navigateToHome()
@@ -123,5 +132,5 @@ fun TextBox(modifier: Modifier, navigateToHome: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 private fun PrevLogin() {
-    //Login()
+
 }
